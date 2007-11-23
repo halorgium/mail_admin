@@ -1,3 +1,6 @@
 [submodule "vendor/rails"]
 	path = vendor/rails
 	url = git://git.zodal.net/libraries/rails.git
+[submodule "lib/recipes"]
+	path = lib/recipes
+	url = git://git.zodal.net/tools/capistrano-recipes.git
