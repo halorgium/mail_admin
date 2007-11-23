@@ -1,0 +1,8 @@
+*~
+**/*~
+.*.sw?
+**/.*.sw?
+
+log/*
+config/database.yml
+
