@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 3) do
+ActiveRecord::Schema.define(:version => 4) do
 
   create_table "domains", :force => true do |t|
     t.string   "name"
@@ -27,6 +27,15 @@ ActiveRecord::Schema.define(:version => 3) do
   end
 
   add_index "forwardings", ["source"], :name => "index_forwardings_on_source", :unique => true
+
+  create_table "transports", :force => true do |t|
+    t.integer  "domain_id"
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "transports", ["name"], :name => "index_transports_on_name", :unique => true
 
   create_table "users", :force => true do |t|
     t.string   "email"
