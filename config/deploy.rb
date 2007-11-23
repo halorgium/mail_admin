@@ -1,15 +1,14 @@
-set :application, "set your application name here"
-set :repository,  "set your repository location here"
+require 'lib/recipes/all'
 
-# If you aren't deploying to /u/apps/#{application} on the target
-# servers (which is the default), you can specify the actual location
-# via the :deploy_to variable:
-# set :deploy_to, "/var/www/#{application}"
+depend :remote, :gem, "haml", ">=1.7.2"
 
-# If you aren't using Subversion to manage your source code, specify
-# your SCM below:
-# set :scm, :subversion
+set :rails_version, :edge
+set :application, "mail_admin"
+set :repository,  "git://git.zodal.net/tim/mail_admin.git"
+set :scm, :git
+set :git_enable_submodules, true
 
-role :app, "your app-server here"
-role :web, "your web-server here"
-role :db,  "your db-server here", :primary => true
+set :deploy_via, :remote_cache
+set :deploy_configs, %w(database)
+
+set :use_sudo, false
