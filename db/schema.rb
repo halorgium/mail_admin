@@ -11,6 +11,17 @@
 
 ActiveRecord::Schema.define(:version => 4) do
 
+  create_table "accounts", :force => true do |t|
+    t.string   "name"
+    t.integer  "domain_id"
+    t.string   "crypted_password"
+    t.string   "salt"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "accounts", ["name", "domain_id"], :name => "index_accounts_on_name_and_domain_id", :unique => true
+
   create_table "domains", :force => true do |t|
     t.string   "name"
     t.datetime "created_at"
@@ -20,13 +31,14 @@ ActiveRecord::Schema.define(:version => 4) do
   add_index "domains", ["name"], :name => "index_domains_on_name", :unique => true
 
   create_table "forwardings", :force => true do |t|
-    t.string   "source"
-    t.text     "destination"
+    t.integer  "source_domain_id"
+    t.string   "source_name"
+    t.integer  "destination_account_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "forwardings", ["source"], :name => "index_forwardings_on_source", :unique => true
+  add_index "forwardings", ["source_domain_id", "source_name"], :name => "index_forwardings_on_source_domain_id_and_source_name", :unique => true
 
   create_table "transports", :force => true do |t|
     t.integer  "domain_id"
@@ -36,15 +48,5 @@ ActiveRecord::Schema.define(:version => 4) do
   end
 
   add_index "transports", ["name"], :name => "index_transports_on_name", :unique => true
-
-  create_table "users", :force => true do |t|
-    t.string   "email"
-    t.string   "password"
-    t.integer  "quota"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "users", ["email"], :name => "index_users_on_email", :unique => true
 
 end
