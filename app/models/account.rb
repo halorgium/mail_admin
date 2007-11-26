@@ -1,3 +1,5 @@
+require 'digest/sha1'
+
 class Account < ActiveRecord::Base
   belongs_to :domain
   has_many :aliases, :class_name => 'Forwarding', :foreign_key => 'destination_account_id'
