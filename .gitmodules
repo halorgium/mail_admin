@@ -7,3 +7,6 @@
 [submodule "vendor/plugins/make_resourceful"]
 	path = vendor/plugins/make_resourceful
 	url = git://git.zodal.net/plugins/make_resourceful.git
+[submodule "vendor/plugins/restful_authentication"]
+	path = vendor/plugins/restful_authentication
+	url = git://git.zodal.net/plugins/restful_authentication.git
