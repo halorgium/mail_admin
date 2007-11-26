@@ -1,0 +1,16 @@
+%div[domain]
+  %p.name
+    %strong Name
+    = h domain.name
+  %p.uid
+    %strong Uid
+    = h domain.uid
+  %p.gid
+    %strong Gid
+    = h domain.gid
+
+  = link_to 'Show', object_path(domain)
+  |
+  = link_to 'Edit', edit_object_path(domain)
+  |
+  = link_to 'Destroy', object_path(domain), :confirm => 'Really destroy domain?', :method => :delete
