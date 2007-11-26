@@ -32,6 +32,22 @@ class Account < ActiveRecord::Base
     domain.name
   end
 
+  def uid
+    optional_uid || domain.uid
+  end
+
+  def uid=(uid)
+    self.optional_uid = uid
+  end
+
+  def gid
+    optional_gid || domain.gid
+  end
+
+  def gid=(gid)
+    self.optional_gid = gid
+  end
+
   # Authenticates a user by their name and unencrypted password.  Returns the user or nil.
   def self.authenticate(name, password)
     u = find_by_name(name) # need to get the salt

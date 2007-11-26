@@ -12,18 +12,22 @@
 ActiveRecord::Schema.define(:version => 5) do
 
   create_table "accounts", :force => true do |t|
-    t.string   "name"
     t.integer  "domain_id"
+    t.string   "name"
     t.string   "crypted_password"
     t.string   "salt"
+    t.integer  "optional_uid"
+    t.integer  "optional_gid"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "accounts", ["name", "domain_id"], :name => "index_accounts_on_name_and_domain_id", :unique => true
+  add_index "accounts", ["domain_id", "name"], :name => "index_accounts_on_name_and_domain_id", :unique => true
 
   create_table "domains", :force => true do |t|
     t.string   "name"
+    t.integer  "uid"
+    t.integer  "gid"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

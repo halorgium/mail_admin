@@ -2,6 +2,7 @@ class CreateDomains < ActiveRecord::Migration
   def self.up
     create_table :domains do |t|
       t.string :name
+      t.integer :uid, :gid
 
       t.timestamps
     end

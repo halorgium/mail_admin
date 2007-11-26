@@ -3,7 +3,7 @@ class Domain < ActiveRecord::Base
   has_many :transports, :dependent => :destroy
   has_many :forwardings
   
-  validates_presence_of :name
+  validates_presence_of :name, :uid, :gid
   validates_uniqueness_of :name
 
   def self.find_by_email(email)

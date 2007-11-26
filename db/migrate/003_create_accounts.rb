@@ -1,10 +1,10 @@
 class CreateAccounts < ActiveRecord::Migration
   def self.up
     create_table :accounts do |t|
-      t.string :name
       t.integer :domain_id
-      t.string :crypted_password
-      t.string :salt
+      t.string :name
+      t.string :crypted_password, :salt
+      t.integer :optional_uid, :optional_gid
 
       t.timestamps
     end
