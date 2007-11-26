@@ -12,6 +12,6 @@ class Domain < ActiveRecord::Base
 
   def self.split_email(email)
     name, domain = email.split(/@/, 2)
-    [name, Domain.find_by_name(domain)]
+    [name, find_by_name(domain)]
   end
 end
