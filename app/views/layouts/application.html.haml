@@ -1,0 +1,46 @@
+!!! Strict
+%html{html_attrs}
+  %head
+    %title Mail Admin
+    %meta{:http_equiv => "Content-Type", :content => "text/html; charset=iso-8859-1"}
+    = stylesheet_link_tag "default"
+
+  %body
+    #upbg
+    #outer
+      #header
+        #headercontent
+          %h1 Mail Admin
+          %h2 Moooo went the cow
+      //#headerpic
+      
+      #menu
+        %ul
+          %li
+            = link_to "Home", root_path
+          %li
+            = link_to "Domains", domains_path
+      #menubottom
+      
+      #content
+        - if normal_content?
+          #normalcontent
+            %h3
+              %strong Zenlike
+            .contentarea
+              = yield :normal_content
+
+          .divider1
+
+        #primarycontainer
+          #primarycontent
+            = yield
+
+        #secondarycontent
+          = yield :right_column
+ 
+      #footer
+        .left &copy; 2007 halorgium. All rights reserved.
+        .right
+          Design by 
+          = link_to "NodeThirtyThree Design", "http://www.nodethirtythree.com/"
