@@ -12,3 +12,5 @@ set :deploy_via, :remote_cache
 set :deploy_configs, %w(database)
 
 set :use_sudo, false
+
+set :tty, true
