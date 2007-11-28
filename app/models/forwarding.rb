@@ -2,7 +2,7 @@ class Forwarding < ActiveRecord::Base
   belongs_to :destination_account, :class_name => 'Account'
   belongs_to :source_domain, :class_name => 'Domain'
   
-  validates_presence_of :source_domain_id, :source_name, :destination_account_id
+  validates_presence_of :source_domain_id, :destination_account_id
   validates_uniqueness_of :source_name, :scope => :source_domain_id
 
   def source=(source)

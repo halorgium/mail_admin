@@ -1,0 +1,6 @@
+%p
+  %label{:for => "forwarding_source_name"} Alias:
+  = f.text_field :source_name
+%p
+  %label{:for => "forwarding_destination_account"} Destination account:
+  = f.collection_select :destination_account_id, @destination_accounts, :id, :email

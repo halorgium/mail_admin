@@ -1,0 +1,7 @@
+%h3
+  Listing forwardings for
+  = link_to h(parent_object), parent_object
+
+= render :partial => 'forwarding', :collection => current_objects
+
+= link_to 'New forwarding', new_object_path 

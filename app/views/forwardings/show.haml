@@ -1,0 +1,15 @@
+%h3 Viewing forwarding
+
+%div[current_object]
+  %p.source_name
+    %strong Source name
+    = h current_object.source_name
+  %p.destination_account
+    %strong Destination account
+    = h current_object.destination_account
+
+= link_to 'Edit', edit_object_path
+|
+= link_to 'Destroy', object_path, :confirm => 'Really destroy forwarding?', :method => :delete
+|
+= link_to 'Back', objects_path

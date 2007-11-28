@@ -1,0 +1,20 @@
+%h3
+  Viewing
+  =h current_object
+
+%div[current_object]
+  %p.name
+    %strong Name
+    = h current_object.name
+  %p.optional_uid
+    %strong Optional uid
+    = h current_object.optional_uid
+  %p.optional_gid
+    %strong Optional gid
+    = h current_object.optional_gid
+
+= link_to 'Edit', edit_object_path
+|
+= link_to 'Destroy', object_path, :confirm => 'Really destroy account?', :method => :delete
+|
+= link_to 'Back', objects_path

@@ -1,0 +1,13 @@
+%div[forwarding]
+  %p.source_name
+    %strong Alias
+    = h forwarding.source_name
+  %p.destination_account
+    %strong Destination account
+    = h forwarding.destination_account
+
+  = link_to 'Show', object_path(forwarding)
+  |
+  = link_to 'Edit', edit_object_path(forwarding)
+  |
+  = link_to 'Destroy', object_path(forwarding), :confirm => 'Really destroy forwarding?', :method => :delete

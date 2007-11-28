@@ -1,7 +1,7 @@
 class Domain < ActiveRecord::Base
   has_many :accounts, :dependent => :destroy
   has_many :transports, :dependent => :destroy
-  has_many :forwardings
+  has_many :forwardings, :foreign_key => "source_domain_id"
   
   validates_presence_of :name, :uid, :gid
   validates_uniqueness_of :name
@@ -13,5 +13,9 @@ class Domain < ActiveRecord::Base
   def self.split_email(email)
     name, domain = email.split(/@/, 2)
     [name, find_by_name(domain)]
+  end
+  
+  def to_s
+    name
   end
 end

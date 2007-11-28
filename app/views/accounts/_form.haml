@@ -1,0 +1,15 @@
+%p
+  %label{:for => "account_name"} Name:
+  = f.text_field :name
+%p
+  %label{:for => "account_password"} Password:
+  = f.text_field :password
+%p
+  %label{:for => "account_password_confirmation"} Password confirmation:
+  = f.text_field :password_confirmation
+%p
+  %label{:for => "account_optional_uid"} Optional uid:
+  = f.text_field :optional_uid
+%p
+  %label{:for => "account_optional_gid"} Optional gid:
+  = f.text_field :optional_gid

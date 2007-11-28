@@ -26,6 +26,10 @@ class Account < ActiveRecord::Base
     end
   end
   
+  def to_s
+    email
+  end
+  
   def email
     [name, domain_name].join("@")
   end
