@@ -3,14 +3,11 @@
   =h current_object
 
 %div[current_object]
-  %p.name
-    %strong Name
-    = h current_object.name
   %p.uid
-    %strong Uid
+    %strong UID
     = h current_object.uid
   %p.gid
-    %strong Gid
+    %strong GID
     = h current_object.gid
 
 = link_to 'Edit', edit_object_path

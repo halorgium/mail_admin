@@ -1,4 +1,7 @@
-%h3 Listing accounts
+%h3
+  Listing accounts for
+  = parent_name
+  = link_to h(parent_object), parent_object
 
 = render :partial => 'account', :collection => current_objects
 
